@@ -10,11 +10,10 @@ const taskSchema = new mongoose.Schema(
     isDeleted: { type: Boolean, default: false },
   },
   {
-    timestamps: true, // Автомат timestamps (createdAt, updatedAt)
+    timestamps: true,
   }
 );
 
-// MongoDB Model үүсгэх
 const Task = mongoose.models.Task || mongoose.model("Task", taskSchema);
 
 export default Task;

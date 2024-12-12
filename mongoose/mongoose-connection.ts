@@ -1,18 +1,18 @@
 /** @format */
 
-/** @format */
+// /** @format */
 
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-export const connectMongoose = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URL as string);
-    console.log("connection successful");
-  } catch (error) {
-    console.log("Mongoose connection error", error);
-    console.log("connection Failed");
-  }
-};
+// export const connectMongoose = async () => {
+//   try {
+//     await mongoose.connect(process.env.MONGODB_URL as string);
+//     console.log("connection successful");
+//   } catch (error) {
+//     console.log("Mongoose connection error", error);
+//     console.log("connection Failed");
+//   }
+// };
 // import mongoose from "mongoose";
 
 // export const connectMongoose = async () => {
@@ -36,3 +36,17 @@ export const connectMongoose = async () => {
 //     console.error("MongoDB connection error:", error);
 //   }
 // };
+// mongoose-connection.ts
+import mongoose from "mongoose";
+
+export const connectMongoose = async () => {
+  try {
+    const dbURL =
+      process.env.MONGODB_URL ||
+      "mongodb+srv://bilguun040728:Mongo%40040728@cluster0.zpuzv.mongodb.net/";
+    await mongoose.connect(dbURL);
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};

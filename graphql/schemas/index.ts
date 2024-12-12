@@ -12,30 +12,50 @@
 //   }
 // `;
 
-import { gql } from "graphql-tag";
+// import { gql } from "graphql-tag";
+
+// export const typeDefs = gql`
+//   type Task {
+//     id: ID!
+//     title: String!
+//     description: String
+//     isDeleted: Boolean!
+//   }
+
+//   input TaskInput {
+//     title: String!
+//     description: String
+//   }
+
+//   type Query {
+//     helloQuery: String
+//     getAllTasks: [Task!]!
+//     getFinishedTasksLists: [Task!]!
+//   }
+
+//   type Mutation {
+//     sayHello(name: String!): String
+//     addTask(input: TaskInput!): Task!
+//     updateTask(id: ID!, input: TaskInput!): Task!
+//   }
+// `;
+
+// schemas/index.ts
+import { gql } from "apollo-server-cloud-functions";
 
 export const typeDefs = gql`
   type Task {
     id: ID!
     title: String!
-    description: String
     isDeleted: Boolean!
   }
 
-  input TaskInput {
-    title: String!
-    description: String
-  }
-
   type Query {
-    helloQuery: String
-    getAllTasks: [Task!]!
-    getFinishedTasksLists: [Task!]!
+    tasks: [Task]
   }
 
   type Mutation {
-    sayHello(name: String!): String
-    addTask(input: TaskInput!): Task!
-    updateTask(id: ID!, input: TaskInput!): Task!
+    addTask(title: String!): Task
+    updateTask(id: ID!, title: String!): Task
   }
 `;
