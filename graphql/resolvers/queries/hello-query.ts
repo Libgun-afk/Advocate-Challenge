@@ -1,3 +1,5 @@
+/** @format */
+
 export const helloQuery = () => {
-  return "This is hello Query";
+  return "This is a sample hello query.";
 };
